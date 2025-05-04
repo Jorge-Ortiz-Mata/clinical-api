@@ -2,4 +2,6 @@
 class Patient < ApplicationRecord
   belongs_to :doctor
   has_many :appointments
+
+  validates :name, presence: true, uniqueness: true
 end
