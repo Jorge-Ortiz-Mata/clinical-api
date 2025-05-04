@@ -3,44 +3,44 @@
 default: help
 
 logs: #: Tails the logs for the app (tail -f log/development.log)
-	docker-compose logs -f app
+	docker compose logs -f app
 
 routes: #: Rails routes (rake routes)
-	docker-compose run --rm app bundle exec rails routes
+	docker compose run --rm app bundle exec rails routes
 
 up: #: Starts the app in the background
-	docker-compose up -d
+	docker compose up -d
 
 test: #: Run the tests
-	docker-compose run --rm app bundle exec rspec
+	docker compose run --rm app bundle exec rspec
 
 down: #: Stops the app
-	docker-compose down
+	docker compose down
 
-bundle: #: Installs gems, docker-compose down must be run before
-	docker-compose run --rm app bundle install
+bundle: #: Installs gems, docker compose down must be run before
+	docker compose run --rm app bundle install
 
 console: #: Start a rails console
-	docker-compose run --rm app bundle exec rails console
+	docker compose run --rm app bundle exec rails console
 
 bash: #: Start a bash shell
-	docker-compose run --rm app bash
+	docker compose run --rm app bash
 
 build: #: Build the app
-	docker-compose build app
+	docker compose build app
 
 dbmigrate: #: Migrate the database
-	docker-compose run --rm app bundle exec rails db:migrate
-	docker-compose run --rm -e RAILS_ENV=test app bundle exec rails db:migrate
+	docker compose run --rm app bundle exec rails db:migrate
+	docker compose run --rm -e RAILS_ENV=test app bundle exec rails db:migrate
 
 dbcreate: #: Create the database
-	docker-compose run --rm app bundle exec rails db:create db:schema:load
+	docker compose run --rm app bundle exec rails db:create db:schema:load
 
 dbseed: #: Seed the database
-	docker-compose run --rm app bundle exec rails db:seed
+	docker compose run --rm app bundle exec rails db:seed
 
 dbdrop: #: Drop the database
-	docker-compose run --rm app bundle exec rails db:drop
+	docker compose run --rm app bundle exec rails db:drop
 
 chown: #: Change owner and group of all files in repo to current user
 	sudo chown -R $(USER):$(USER) *
