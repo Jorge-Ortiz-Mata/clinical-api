@@ -89,3 +89,12 @@ When evaluating code, the following are among the factors considered:
   Would we enjoy your code living along side our own?
 * Is it slow? For small to medium sized inputs, the processing delay should
   probably not be noticeable.
+
+
+## Jorge Section
+
+- Update makefile commands from `docker-compose` to `docker compose`
+- Add a new make command: `make dbreset`
+- Comment first migration that creates the doctors appointment and move the logic to the second migration.
+- Fix doctor uniqueness name issue on tests.
+- Create service classes and tests for dev preparation.

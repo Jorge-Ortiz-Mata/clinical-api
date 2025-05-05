@@ -17,13 +17,13 @@ module DevPreparation
 
         quantity.times do
           number = rand(30..180)
-          dates << calculate_date(number, direction)
+          dates << calculate_date(direction, number)
         end
 
         dates
       end
 
-      def calculate_date(number, direction)
+      def calculate_date(direction, number)
         return Date.today - number.days if direction == BEFORE
 
         Date.today + number.days

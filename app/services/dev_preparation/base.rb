@@ -1,8 +1,8 @@
 module DevPreparation
   class Base
     class << self
-      def call
-        10.times { DevPreparation::DoctorCreator.call }
+      def call(doctors_amount, patients_amount)
+        doctors_amount.times { DevPreparation::DoctorCreator.call(patients_amount) }
       end
     end
   end

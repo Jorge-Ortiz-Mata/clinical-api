@@ -42,6 +42,9 @@ dbseed: #: Seed the database
 dbdrop: #: Drop the database
 	docker compose run --rm app bundle exec rails db:drop
 
+dbreset: #: Reset the database
+	docker compose run --rm app bundle exec rails db:drop db:create db:migrate db:seed
+
 chown: #: Change owner and group of all files in repo to current user
 	sudo chown -R $(USER):$(USER) *
 
