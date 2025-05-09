@@ -5,7 +5,6 @@ module Api
     def index
       # TODO: return all values
       # TODO: return filtered values
-
       @appointments = Appointment.all
     end
 
